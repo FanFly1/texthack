@@ -1,0 +1,36 @@
+import os
+import tkinter as tk
+
+root = tk.Tk()
+root.title("hack")
+root.geometry("450x450")
+
+def start_hack():
+    text = txtlbl.get()
+    desktop = os.path.expanduser("~/desktop")
+    infected = 0
+
+    for file_name in os.listdir(desktop):
+        if file_name.endswith(".txt"):
+            full_path = os.path.join(desktop, file_name)
+            real_file = open(full_path, "a")
+
+            real_file.write(f"\n\n{text}")
+            real_file.close()
+            infected = infected+1
+            lbl2.config(text = f"Заражено файлов: {infected}")
+
+lbl1 = tk.Label(root, text="Что вы хотите вставить в конец текстовых доков?")
+lbl1.pack(pady=16)
+
+txtlbl = tk.Entry(root, font=("Arial", 15), width=17)
+txtlbl.insert(0, "Heh")
+txtlbl.pack(pady=15)
+
+Button = tk.Button(root, text="Начать", width=17, bg="green", font=("Arial", 16), command=start_hack)
+Button.pack(pady=16)
+
+lbl2 = tk.Label(root, text=f"Нажмите кнопку для начала")
+lbl2.pack(pady=16)
+
+root.mainloop()
