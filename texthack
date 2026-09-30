@@ -18,9 +18,9 @@ def start_hack():
             real_file.write(f"\n\n{text}")
             real_file.close()
             infected = infected+1
-            lbl2.config(text = f"Заражено файлов: {infected}")
+            lbl2.config(text = f"Infected files: {infected}")
 
-lbl1 = tk.Label(root, text="Что вы хотите вставить в конец текстовых доков?")
+lbl1 = tk.Label(root, text="What do you want to insert at the end of the text documents??")
 lbl1.pack(pady=16)
 
 txtlbl = tk.Entry(root, font=("Arial", 15), width=17)
@@ -30,7 +30,7 @@ txtlbl.pack(pady=15)
 Button = tk.Button(root, text="Начать", width=17, bg="green", font=("Arial", 16), command=start_hack)
 Button.pack(pady=16)
 
-lbl2 = tk.Label(root, text=f"Нажмите кнопку для начала")
+lbl2 = tk.Label(root, text=f"Tao to start")
 lbl2.pack(pady=16)
 
 root.mainloop()
